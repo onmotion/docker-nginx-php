@@ -25,22 +25,19 @@ RUN apt-get update && apt-get install -y \
  php${PHP_VERSION}-mysql \
  php${PHP_VERSION}-pgsql \
  php${PHP_VERSION}-xdebug \
- php${PHP_VERSION}-intl
+ php${PHP_VERSION}-intl \
+ php${PHP_VERSION}-ldap
 
 COPY ./fpm/pool.d/ /etc/php/${PHP_VERSION}/fpm/pool.d
+# Добавим свой php.ini, можем в нем определять свои значения конфига
 COPY ./fpm/conf.d/additional-php.ini /etc/php/${PHP_VERSION}/fpm/conf.d/99-additional-php.ini
 COPY ./cli/conf.d/additional-cli-php.ini /etc/php/${PHP_VERSION}/cli/conf.d/99-additional-cli-php.ini
 
-# Куда же без composer'а.
+# composer.
 #RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
-# Добавим свой php.ini, можем в нем определять свои значения конфига
-# ADD php.ini /usr/local/etc/php/conf.d/40-custom.ini
 
 # Указываем рабочую директорию для PHP
 WORKDIR /var/www
 
 # Запускаем контейнер
 CMD /bin/bash service php${PHP_VERSION}-fpm start && /bin/bash
-
-# EXPOSE 9000
