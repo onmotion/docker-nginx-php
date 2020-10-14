@@ -1,0 +1,39 @@
+# Версия docker-compose
+version: '3'
+# Список наших сервисов (контейнеров)
+services:
+    nginx:
+        # используем последний стабильный образ nginx
+        image: nginx:latest
+        env_file:
+            - .env
+        # маршрутизируем порты
+        ports:
+            - "80:80"
+            - "443:443"
+        # монтируем директории, слева директории на основной машине, справа - куда они монтируются в контейнере
+        volumes:
+            - ${PROJECTS_DIR}:/var/www
+            - ./nginx/conf.d:/etc/nginx/conf.d
+            - ./nginx/logs:/var/log/nginx
+        # nginx должен общаться с php контейнером
+        links:
+            - php
+    php:
+        build: 
+            context: ./images/php
+            dockerfile: Dockerfile
+            args:
+                PHP_VERSION: 7.3
+        env_file:
+            - .env
+        
+        ports:
+            - "5432:5432"
+       # links:
+          #  - mysql
+        # монтируем директорию с проектами
+        volumes:
+            - ${PROJECTS_DIR}:/var/www
+        stdin_open: true # docker run -i
+        tty: true        # docker run -t

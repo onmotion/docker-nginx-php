@@ -1,0 +1,37 @@
+FROM debian:buster
+
+RUN apt-get update && apt-get install -y \
+        curl \
+        git \
+        wget \
+        libfreetype6-dev \
+        libjpeg62-turbo-dev \
+        libmcrypt-dev \
+        libonig-dev \
+        libxml2-dev \
+        libzip-dev
+
+RUN apt-get -y install lsb-release apt-transport-https ca-certificates
+RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/php.list
+RUN apt-get update && apt-get install -y \
+ php7.3 \
+ php7.3-fpm \
+ php7.3-mysql \
+ php7.3-pgsql \
+ php-xdebug \
+ php-intl
+
+COPY ./fpm/pool.d/ /etc/php/7.3/fpm/pool.d
+# Добавим свой php.ini, можем в нем определять свои значения конфига
+COPY ./fpm/conf.d/additional-php.ini /etc/php/7.3/fpm/conf.d/99-additional-php.ini
+COPY ./cli/conf.d/additional-cli-php.ini /etc/php/7.3/cli/conf.d/99-additional-cli-php.ini
+
+# composer
+#RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Указываем рабочую директорию для PHP
+WORKDIR /var/www
+
+# Запускаем контейнер
+CMD /bin/bash service php7.3-fpm start && /bin/bash
