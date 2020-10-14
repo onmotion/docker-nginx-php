@@ -1,5 +1,5 @@
 # docker-nginx-php
-docker-nginx-php
+Webserver based on nginx + php-fpm stack
 
 ## How To Start
 
