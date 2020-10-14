@@ -44,3 +44,15 @@ After the container successfully started up, you can access your host `http://yo
 You can access container by `host.docker.internal` alias. So, if you have locally installed *postgres*, you should set up your app as `host.docker.internal:5432` instead of `127.0.0.1:5432`, and add port to **docker-compose.yml** to services - php - ports section
 
 > After each change of config you should do `docker-compose up -d && docker-compose restart`
+
+### Debug with PHPStorm and Xdebug
+
+![fluent](https://raw.githubusercontent.com/onmotion/docker-nginx-php/docs/docs/img/2020-10-14_17-32-35.png)
+
+![fluent](https://raw.githubusercontent.com/onmotion/docker-nginx-php/docs/docs/img/2020-10-14_17-34-15.png)
+
+![fluent](https://raw.githubusercontent.com/onmotion/docker-nginx-php/docs/docs/img/2020-10-14_17-35-26.png)
+
+![fluent](https://raw.githubusercontent.com/onmotion/docker-nginx-php/docs/docs/img/2020-10-14_17-36-01.png)
+
+![fluent](https://raw.githubusercontent.com/onmotion/docker-nginx-php/docs/docs/img/2020-10-14_17-48-02.png)
