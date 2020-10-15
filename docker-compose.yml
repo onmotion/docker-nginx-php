@@ -19,6 +19,7 @@ services:
         # nginx должен общаться с php контейнером
         links:
             - php
+        # restart: always
     php:
         build: 
             context: ./images/php
@@ -30,10 +31,12 @@ services:
         
         ports:
             - "5432:5432"
-       # links:
-          #  - mysql
+        # будет добавлено в /etc/hosts
+        extra_hosts:
+            - "dc-dc-01:172.16.243.218"
         # монтируем директорию с проектами
         volumes:
             - ${PROJECTS_DIR}:/var/www
         stdin_open: true # docker run -i
         tty: true        # docker run -t
+        # restart: always

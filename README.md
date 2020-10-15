@@ -55,4 +55,6 @@ You can access container by `host.docker.internal` alias. So, if you have locall
 
 ![fluent](https://raw.githubusercontent.com/onmotion/docker-nginx-php/docs/docs/img/2020-10-14_17-36-01.png)
 
+![fluent](https://raw.githubusercontent.com/onmotion/docker-nginx-php/docs/docs/img/2020-10-14_17-45-00.png)
+
 ![fluent](https://raw.githubusercontent.com/onmotion/docker-nginx-php/docs/docs/img/2020-10-14_17-48-02.png)

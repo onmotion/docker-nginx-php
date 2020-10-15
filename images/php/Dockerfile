@@ -1,5 +1,6 @@
 FROM debian:buster
-ARG PHP_VERSION
+# php default version
+ARG PHP_VERSION=7.4
 
 # RUN выполняет идущую за ней команду в контексте нашего образа.
 # В данном случае мы установим некоторые зависимости и модули PHP.
@@ -26,6 +27,8 @@ RUN apt-get update && apt-get install -y \
  php${PHP_VERSION}-pgsql \
  php${PHP_VERSION}-xdebug \
  php${PHP_VERSION}-intl \
+ php${PHP_VERSION}-zip \
+ php${PHP_VERSION}-xml \
  php${PHP_VERSION}-ldap
 
 COPY ./fpm/pool.d/ /etc/php/${PHP_VERSION}/fpm/pool.d
