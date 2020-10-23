@@ -43,7 +43,7 @@ After the container successfully started up, you can access your host `http://yo
 
 You can access container by `host.docker.internal` alias. So, if you have locally installed *postgres*, you should set up your app as `host.docker.internal:5432` instead of `127.0.0.1:5432`, and add port to **docker-compose.yml** to services - php - ports section
 
-> After each change of config you should do `docker-compose up -d && docker-compose restart`
+> After each change of config you should do `docker-compose build && docker-compose up -d && docker-compose restart`
 
 ### Debug with PHPStorm and Xdebug
 

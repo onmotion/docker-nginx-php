@@ -34,6 +34,7 @@ services:
         # будет добавлено в /etc/hosts
         extra_hosts:
             - "dc-dc-01:172.16.243.218"
+            - "api.skl-co.lh:172.18.0.1"
         # монтируем директорию с проектами
         volumes:
             - ${PROJECTS_DIR}:/var/www

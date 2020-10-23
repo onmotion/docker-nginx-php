@@ -29,6 +29,9 @@ RUN apt-get update && apt-get install -y \
  php${PHP_VERSION}-intl \
  php${PHP_VERSION}-zip \
  php${PHP_VERSION}-xml \
+ php${PHP_VERSION}-gd \
+ php${PHP_VERSION}-imagick \
+ php${PHP_VERSION}-curl \
  php${PHP_VERSION}-ldap
 
 COPY ./fpm/pool.d/ /etc/php/${PHP_VERSION}/fpm/pool.d
