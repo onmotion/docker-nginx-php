@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
         curl \
         git \
         wget \
+        telnet \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \

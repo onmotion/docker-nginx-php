@@ -1,10 +1,11 @@
 # Версия docker-compose
-version: '3'
+version: '3.7'
 # Список наших сервисов (контейнеров)
 services:
     nginx:
         # используем последний стабильный образ nginx
         image: nginx:latest
+        container_name: 'nginx'
         env_file:
             - .env
         # маршрутизируем порты
@@ -26,11 +27,9 @@ services:
             dockerfile: Dockerfile
             args:
                 PHP_VERSION: ${PHP_VERSION}
+        container_name: 'php'
         env_file:
             - .env
-        
-        ports:
-            - "5432:5432"
         # будет добавлено в /etc/hosts
         extra_hosts:
             - "dc-dc-01:172.16.243.218"
@@ -41,3 +40,10 @@ services:
         stdin_open: true # docker run -i
         tty: true        # docker run -t
         # restart: always
+    # uncomment if you need rabbitmq
+    # rabbitmq:
+    #     image: rabbitmq:3-management
+    #     container_name: 'rabbitmq'
+    #     ports:
+    #         - "15672:15672" # https://127.0.0.1:15672
+    #         - "5672:5672"
