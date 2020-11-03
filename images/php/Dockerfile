@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y \
         git \
         wget \
         telnet \
+        unzip \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
