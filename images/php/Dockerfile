@@ -33,6 +33,7 @@ RUN apt-get update && apt-get install -y \
  php${PHP_VERSION}-gd \
  php${PHP_VERSION}-imagick \
  php${PHP_VERSION}-curl \
+ php${PHP_VERSION}-mbstring \
  php${PHP_VERSION}-ldap
 
 COPY ./fpm/pool.d/ /etc/php/${PHP_VERSION}/fpm/pool.d
@@ -41,7 +42,7 @@ COPY ./fpm/conf.d/additional-php.ini /etc/php/${PHP_VERSION}/fpm/conf.d/99-addit
 COPY ./cli/conf.d/additional-cli-php.ini /etc/php/${PHP_VERSION}/cli/conf.d/99-additional-cli-php.ini
 
 # composer.
-#RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Указываем рабочую директорию для PHP
 WORKDIR /var/www

@@ -45,13 +45,17 @@ You can access container by `host.docker.internal` alias. So, if you have locall
 
 ### PHP alias
 
-If you want to run **php** from bash, you can add bash alias. For example add `alias php="docker exec -it docker-nginx-php_php_1 php"` to .bashrc or .bash_profile
+If you want to run **php** from bash, you can add bash alias. For example add `alias php="docker exec -it php php"` to .bashrc or .bash_profile
 
 ```bash
 echo -e "alias php=\"docker exec -it php php\"" >> ~/.bashrc
 source ~/.bashrc
 php -v
 ```
+
+### Using Composer in PHPStorm
+
+![fluent](https://raw.githubusercontent.com/onmotion/docker-nginx-php/docs/docs/img/2020-11-03_12-59-51)
 
 ### Debug with PHPStorm and Xdebug
 
