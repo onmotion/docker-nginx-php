@@ -2,6 +2,8 @@
 
 Webserver based on nginx + php-fpm stack
 
+<img src="https://raw.githubusercontent.com/onmotion/docker-nginx-php/main/docs/img/2020-11-03_14-37-18.png" width="600">
+
 ## How To Start
 
 ### Clone the project
@@ -55,7 +57,7 @@ php -v
 
 ### Using Composer in PHPStorm
 
-![fluent](https://raw.githubusercontent.com/onmotion/docker-nginx-php/docs/docs/img/2020-11-03_12-59-51)
+![fluent](https://raw.githubusercontent.com/onmotion/docker-nginx-php/main/docs/img/2020-11-03_12-59-51.png)
 
 ### Debug with PHPStorm and Xdebug
 
