@@ -55,6 +55,14 @@ source ~/.bashrc
 php -v
 ```
 
+### Additional services
+
+#### RabbitMQ
+
+```bash
+docker-compose -f ./services/rabbitmq/docker-compose.yml up -d
+```
+
 ### Using Composer in PHPStorm
 
 ![fluent](https://raw.githubusercontent.com/onmotion/docker-nginx-php/main/docs/img/2020-11-03_12-59-51.png)
