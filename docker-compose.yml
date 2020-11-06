@@ -8,7 +8,7 @@ services:
         container_name: 'nginx'
         env_file:
             - .env
-        # маршрутизируем порты
+        # маршрутизируем порты HOST:CONTAINER
         ports:
             - "80:80"
             - "443:443"
@@ -40,10 +40,3 @@ services:
         stdin_open: true # docker run -i
         tty: true        # docker run -t
         # restart: always
-    # uncomment if you need rabbitmq
-    # rabbitmq:
-    #     image: rabbitmq:3-management
-    #     container_name: 'rabbitmq'
-    #     ports:
-    #         - "15672:15672" # https://127.0.0.1:15672
-    #         - "5672:5672"

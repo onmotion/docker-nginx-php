@@ -35,6 +35,7 @@ RUN apt-get update && apt-get install -y \
  php${PHP_VERSION}-imagick \
  php${PHP_VERSION}-curl \
  php${PHP_VERSION}-mbstring \
+ php${PHP_VERSION}-bcmath \
  php${PHP_VERSION}-ldap
 
 COPY ./fpm/pool.d/ /etc/php/${PHP_VERSION}/fpm/pool.d

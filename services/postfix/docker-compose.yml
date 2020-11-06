@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+    postfix:
+        image: juanluisbaptiste/postfix:alpine
+        container_name: 'postfix'
+        ports:
+            - "25:25"
+        environment:
+            - SMTP_SERVER=localhost
+            - SERVER_HOSTNAME=docker-postfix
+            - SMTP_USERNAME=postfix
+            - SMTP_PASSWORD=postfix
+        volumes:
+            - ./entrypoint.sh:/entrypoint.sh
+        entrypoint: '/entrypoint.sh'
+        stdin_open: true # docker run -i
+        tty: true        # docker run -t
